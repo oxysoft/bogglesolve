@@ -13,10 +13,10 @@ namespace bogglesolver {
 
 			// the letter grid
 			char[] data = {
-				'e', 't', 'i', 'e', 
-				'n', 'r', 'q', 'b', 
-				's', 'e', 'g', 'n', 
-				'c', 'a', 'e', 't', 
+				'd', 'e', 'c', 'd', 
+				'r', 'n', 'n', 'e', 
+				'u', 'n', 's', 'd', 
+				'e', 'u', 'a', 'd', 
 			};
 
 			WordGrid grid = new WordGrid(data);

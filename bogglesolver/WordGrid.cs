@@ -20,6 +20,9 @@ namespace bogglesolver {
 					cells[j * w + i] = new Cell(this, data[j * w + i], i, j);
 				}
 			}
+
+			foreach (Cell c in cells)
+				c.neighbors = GetNeighbors(c.x, c.y);
 		}
 
 		public Cell Get(int i, int j) {
@@ -54,9 +57,7 @@ namespace bogglesolver {
 
 			for (int i = 0; i < w; i++) {
 				for (int j = 0; j < h; j++) {
-					Cell c = Get(i, j);
-
-					List<string> found = c.Expand(dictionary);
+					words.AddRange(Get(i, j).Expand(dictionary));
 				}
 			}
 

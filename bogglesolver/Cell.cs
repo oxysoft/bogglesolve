@@ -10,9 +10,7 @@ namespace bogglesolver {
 		public char value;
 		public readonly int x, y;
 
-		public List<Cell> Neighbors {
-			get { return grid.GetNeighbors(x, y); }
-		}
+		public List<Cell> neighbors;
 
 		public Cell(WordGrid grid, char value, int x, int y) {
 			this.grid = grid;
@@ -22,7 +20,6 @@ namespace bogglesolver {
 		}
 
 		public List<string> Expand(WordTree dictionary) {
-			List<Cell> neighbors  = Neighbors;
 			List<string> list = new List<string>();
 			foreach (Cell n in neighbors) {
 				List<string> ret = n.ExpandProcess(dictionary, "" + value, 0, list, new List<CellVisit> { new CellVisit(this, 0) });
@@ -37,9 +34,6 @@ namespace bogglesolver {
 				list.Add(sum);
 				Console.WriteLine(":: " + sum);
 			}
-
-
-			List<Cell> neighbors = Neighbors;
 
 			foreach (Cell n in neighbors) {
 				if (!visited.Contains(new CellVisit(n, depth))) {
